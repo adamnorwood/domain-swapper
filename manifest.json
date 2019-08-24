@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Domain Swapper",
+  "version": "0.0.1",
+  "description": "Swaps you between dev domain hostnames!",
+  "icons": {
+    "48": "icons/coffee-48.png",
+    "96": "icons/coffee-96.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+      "activeTab",
+      "tabs"
+  ],
+  "page_action": {
+    "default_icon": "icons/coffee-32.png",
+    "default_title": "Domain Swapper"
+  }
+}
