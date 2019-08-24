@@ -3,7 +3,6 @@ function listenForClicks() {
         browser.tabs.query({active: true, currentWindow: true})
             .then(function(tabs) {
                 browser.tabs.sendMessage(tabs[0].id, {
-                    command: 'swap',
                     url: e.target.textContent
                 });
             });
