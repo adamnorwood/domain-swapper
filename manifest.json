@@ -16,6 +16,7 @@
   ],
   "page_action": {
     "default_icon": "icons/coffee-32.png",
-    "default_title": "Domain Swapper"
+    "default_title": "Domain Swapper",
+    "default_popup": "popup/choose_domain.html"
   }
 }
