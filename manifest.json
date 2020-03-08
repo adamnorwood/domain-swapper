@@ -12,11 +12,16 @@
   },
   "permissions": [
       "activeTab",
+      "storage",
       "tabs"
   ],
   "page_action": {
     "default_icon": "icons/coffee-32.png",
     "default_title": "Domain Swapper",
     "default_popup": "popup/choose_domain.html"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "browser_style": true
   }
 }

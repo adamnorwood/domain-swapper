@@ -17,7 +17,7 @@ body {
     max-width: 10rem;
 }
 
-.domains {
+#hosts {
     display: flex;
     flex-flow: row wrap;
 }

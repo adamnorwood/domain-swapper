@@ -1,4 +1,12 @@
+const hostsContainer = document.getElementById('hosts');
+
 function listenForClicks() {
+
+    let getting = browser.storage.local.get("hosts");
+    getting.then(updateHostsList, (error) => {
+        console.log(`Error: ${error}`);
+    });
+
     document.addEventListener('click', (e) => {
         browser.tabs.query({active: true, currentWindow: true})
             .then(function(tabs) {
@@ -6,6 +14,14 @@ function listenForClicks() {
                     url: e.target.textContent
                 });
             });
+    });
+}
+
+function updateHostsList(result) {
+    result.hosts.forEach(host => {
+        let button = document.createElement('button');
+        button.innerText = host;
+        hostsContainer.appendChild(button);
     });
 }
 
