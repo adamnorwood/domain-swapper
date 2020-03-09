@@ -7,7 +7,8 @@ function listenForClicks() {
         console.log(`Error: ${error}`);
     });
 
-    document.addEventListener('click', (e) => {
+    const hosts = document.getElementById('hosts');
+    hosts.addEventListener('click', (e) => {
         browser.tabs.query({active: true, currentWindow: true})
             .then(function(tabs) {
                 browser.tabs.sendMessage(tabs[0].id, {
@@ -15,14 +16,21 @@ function listenForClicks() {
                 });
             });
     });
+
+    const preferencesButton = document.getElementById('preferences-button');
+    preferencesButton.addEventListener('click', (e) => {
+        browser.runtime.openOptionsPage();
+    });
 }
 
 function updateHostsList(result) {
-    result.hosts.forEach(host => {
-        let button = document.createElement('button');
-        button.innerText = host;
-        hostsContainer.appendChild(button);
-    });
+    if (result.hosts) {
+        result.hosts.forEach(host => {
+            let button = document.createElement('button');
+            button.innerText = host;
+            hostsContainer.appendChild(button);
+        });
+    }
 }
 
 /**
