@@ -13,8 +13,15 @@ html {
 html,
 body {
     margin: 0;
-    padding: .25rem;
-    max-width: 10rem;
+    padding: .5rem;
+    background-color: #202020;
+    max-width: 15em;
+}
+
+h1 {
+    font-size: 1rem;
+    color: #de7255;
+    margin: 0 0 1rem;
 }
 
 #hosts {
@@ -24,24 +31,36 @@ body {
 
 button {
     display: block;
-    padding: .75em .5em;
+    padding: 1em 0;
     flex: 1 1 100%;
-    background-color: white;
-    color: #2d2a28;
-    border: 1px solid #707070;
-    font-size: .6666rem;
+    background-color: transparent;
+    color: white;
+    border: 0;
+    font-size: .75rem;
+    text-align: left;
+}
+
+button.current::after {
+    content: '•';
+    color: #ff683f;
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 1;
+    top: .1em;
+    position: relative;
+    margin-left: .5em;
+}
+
+button:not(:last-child) {
+    border-bottom: 1px dotted rgba(255,255,255,.2);
 }
 
 button:focus,
 button:hover {
-    border: 1px solid #2d2a28;
-    color: #bf5700;
+    color: #ff683f;
     cursor: pointer;
 }
 
-button:not(:last-child) {
-    margin-bottom: .5em;
-}
 
 .hidden {
     display: none;

@@ -1,5 +1,11 @@
 const hostsContainer = document.getElementById('hosts');
 
+/**
+ * Listens for any time the toolbar icon or the popup for this extension is
+ * clicked. Handles updating the popup's list of host buttons, as well as
+ * sending messages to the browser when one of those host buttons is
+ * selected by the user.
+ */
 function listenForClicks() {
 
     let getting = browser.storage.local.get("hosts");
@@ -23,12 +29,33 @@ function listenForClicks() {
     });
 }
 
+/**
+ * Runs every time the popup is opened, populating the popup with
+ * HTML buttons for each host set in the Settings panel.
+ * @param obj result The browser.storage.local object containing hosts from the Settings panel.
+ */
 function updateHostsList(result) {
+
     if (result.hosts) {
-        result.hosts.forEach(host => {
-            let button = document.createElement('button');
-            button.innerText = host;
-            hostsContainer.appendChild(button);
+
+        // First query for the current tab's information (so we can tell if we
+        // are on the "current" hostname) as a Promise. Once that info is
+        // available, loop through the list of hosts specified in the Settings
+        // panel and add buttons for each of them to the popup.
+        browser.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+
+            result.hosts.forEach(host => {
+
+                const button = document.createElement('button');
+                button.innerText = host;
+
+                if (new URL(tabs[0].url).host == host) {
+                    button.classList.add('current');
+                }
+
+                hostsContainer.appendChild(button);
+
+            });
         });
     }
 }
