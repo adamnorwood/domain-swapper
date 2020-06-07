@@ -16,6 +16,7 @@ body {
     padding: .5rem;
     background-color: #202020;
     max-width: 15em;
+    color: white;
 }
 
 h1 {
@@ -61,6 +62,29 @@ button:hover {
     cursor: pointer;
 }
 
+#preferences-button {
+    padding: 0;
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    top: 1.5em;
+    right: 1.25em;
+    opacity: .5;
+    transition: .5s opacity;
+}
+
+#preferences-button:focus,
+#preferences-button:hover {
+    opacity: 1;
+}
+
+#preferences-button svg {
+    fill: white;
+    width: auto;
+    display: block;
+    margin: 0;
+}
 
 .hidden {
     display: none;

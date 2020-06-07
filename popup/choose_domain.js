@@ -15,12 +15,14 @@ function listenForClicks() {
 
     const hosts = document.getElementById('hosts');
     hosts.addEventListener('click', (e) => {
-        browser.tabs.query({active: true, currentWindow: true})
-            .then(function(tabs) {
-                browser.tabs.sendMessage(tabs[0].id, {
-                    url: e.target.textContent
+        if (! e.target.classList.contains('welcome-note')) {
+            browser.tabs.query({active: true, currentWindow: true})
+                .then(function(tabs) {
+                    browser.tabs.sendMessage(tabs[0].id, {
+                        url: e.target.textContent
+                    });
                 });
-            });
+        }
     });
 
     const preferencesButton = document.getElementById('preferences-button');
@@ -36,7 +38,7 @@ function listenForClicks() {
  */
 function updateHostsList(result) {
 
-    if (result.hosts) {
+    if (result.hosts && result.hosts.length > 0) {
 
         // First query for the current tab's information (so we can tell if we
         // are on the "current" hostname) as a Promise. Once that info is
@@ -57,6 +59,14 @@ function updateHostsList(result) {
 
             });
         });
+
+    } else {
+
+        const welcomeNote = document.createElement('p');
+        welcomeNote.classList.add('welcome-note');
+        welcomeNote.innerHTML = 'Click the Settings gear to set some domains!';
+        hostsContainer.appendChild(welcomeNote);
+
     }
 }
 
