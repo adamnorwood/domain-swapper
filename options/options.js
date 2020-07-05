@@ -1,5 +1,4 @@
 const hostsContainer = document.getElementById('hosts');
-
 const addButton = document.createElement('button');
 addButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><path d="M100 36.42H63.58V0H36.42v36.42H0v26.54h36.42V100h27.16V62.96H100z"/></svg> Add';
 addButton.type = 'button';
@@ -46,10 +45,16 @@ function restoreOptions() {
 }
 
 function hostInput(value) {
+
   const inputContainer = document.createElement('div');
   const input = document.createElement('input');
   input.value = value || '';
   input.type = 'text';
+
+  // Remove http:// and https:// from the input string.
+  input.addEventListener('blur', (e) => {
+    e.target.value = e.target.value.replace(/https?:\/\//gi, '');
+  });
 
   const removeButton = document.createElement('button');
   removeButton.type = 'button';
