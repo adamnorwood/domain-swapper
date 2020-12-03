@@ -19,6 +19,10 @@ body {
     margin-bottom: 5em;
 }
 
+#hosts[data-count="0"] + .button--save {
+    outline: 4px solid hotpink;
+}
+
 input[type="text"] {
     display: inline-block;
     margin-bottom: 1em;

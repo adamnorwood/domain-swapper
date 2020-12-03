@@ -31,10 +31,12 @@ function saveOptions(e) {
 function restoreOptions() {
 
   function setCurrentChoice(result) {
-    if (result.hosts) {
+    if (result.hosts.length) {
       result.hosts.forEach(host => {
         hostsContainer.appendChild(hostInput(host));
       });
+
+      hostsContainer.dataset.count = result.hosts.length;
     }
   }
 
