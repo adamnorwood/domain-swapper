@@ -16,12 +16,18 @@
       "tabs"
   ],
   "page_action": {
-    "default_icon": "icons/coffee-32.png",
+    "default_icon": "icons/icon-32.png",
     "default_title": "Domain Swapper",
     "default_popup": "popup/choose_domain.html"
   },
   "options_ui": {
     "page": "options/options.html",
     "browser_style": true
+  },
+  "applications": {
+    "gecko": {
+      "id": "5ae60257-37eb-451f-ba4f-d37dbf6fa5c9",
+      "update_url": "https://adamnorwood.com/domain-swapper/updates.json"
+    }
   }
 }
