@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Domain Swapper",
   "version": "0.0.1",
-  "description": "Swaps you between dev domain hostnames!",
+  "description": "Jump between hostnames but keep the rest of your current URL path!",
   "icons": {
     "48": "icons/icon-48.png",
     "96": "icons/icon-96.png"
@@ -23,11 +23,5 @@
   "options_ui": {
     "page": "options/options.html",
     "browser_style": true
-  },
-  "applications": {
-    "gecko": {
-      "id": "5ae60257-37eb-451f-ba4f-d37dbf6fa5c9",
-      "update_url": "https://adamnorwood.com/domain-swapper/updates.json"
-    }
   }
 }

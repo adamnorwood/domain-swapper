@@ -7,20 +7,73 @@ html {
   box-sizing: border-box;
 }
 
-body {
-    min-height: 250px;
-}
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-#hosts {
-    margin-bottom: 5em;
+.container {
+    background-color: #ededea;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
-#hosts[data-count="0"] + .button--save {
-    outline: 4px solid hotpink;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 2em;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+h1 {
+    font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-size: 2.4em;
+    margin: 1em 1rem;
+    line-height: 1;
+}
+
+#hosts {
+    margin-bottom: 2em;
+    margin-left: 2em;
+    min-height: 150px;
+}
+
+#hosts:not([data-count="0"]) .initial-message {
+    display: none;
+}
+
+.initial-message {
+    color: #333;
+    font-size: 1.75em;
+    text-align: center;
+}
+
+.initial-message img {
+    display: inline-block;
+    margin-left: 1em;
+    margin-bottom: .15em;
+    opacity: .5;
+}
+
+@media screen and (max-width: 500px) {
+    .initial-message {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .initial-message img {
+        flex: 1 1 auto;
+        margin-right: 1em;
+        margin-left: .5em;
+    }
+
+    .initial-message span {
+        flex: 0 1 auto;
+    }
+
 }
 
 input[type="text"] {
@@ -29,51 +82,86 @@ input[type="text"] {
     font-size: 1.25em;
     height: 2.5em;
     padding-left: .5em;
-    padding-right: .5rem;
+    padding-right: 2.5rem;
     margin-right: .5em;
+    border-radius: .66em;
+    border: 0;
+    outline: 0;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .button--add {
-    position: absolute;
-    top: 1em;
-    right: 0;
     display: flex;
     align-items: center;
+    background-color: black;
+    color: white;
+    margin-bottom: 0;
+}
+
+.button--add:focus,
+.button--add:hover {
+    background-color: #9fa628;
 }
 
 .button--add svg {
     margin-right: .5em;
+    fill: white;
+    fill-opacity: .5;
 }
 
 .button--save {
-    width: 100%;
+    display: block;
     text-align: center;
-    position: absolute;
-    bottom: .6666em;
     padding: .6666em;
-    background-color: #de7255;
+    background-color: black;
     color: white;
     letter-spacing: .1em;
     text-transform: uppercase;
+    width: 100%;
 }
 
-.button--save:focus,
-.button--save:hover {
-    background-color: #d04445;
+.button--save:not([disabled]):focus,
+.button--save:not([disabled]):hover {
+    background-color: #9fa628;
+}
+
+.button--save[disabled] {
+    opacity: .2;
+}
+
+.button--save[disabled]:hover {
+    cursor: initial;
+    background-color: black;
 }
 
 .button--remove {
-    width: 2em;
-    height: 2em;
+    width: 1.75em;
+    height: 1.75em;
     padding: 0;
     border-radius: 50%;
+    position: relative;
+    left: -2.75em;
+    top: .15em;
 }
 
 .button--remove svg {
     margin: 0 auto;
     display: block;
-    padding-left: 2px;
+    padding-left: 1px;
     padding-top: 1px;
+}
+
+.button--remove:focus,
+.button--remove:hover {
+    background-color: #fc2f24;
+}
+
+.button--remove:focus svg,
+.button--remove:hover svg {
+    fill: white;
 }
 
 button {
@@ -83,7 +171,6 @@ button {
     color: #202020;
     padding: .5em 1em;
     font-size: 1.25em;
-    border-radius: .25em;
     box-shadow: 2px 2px 4px rgba(0,0,0,.1);
     transition: .4s background-color;
 }
