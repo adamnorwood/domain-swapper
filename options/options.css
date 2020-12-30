@@ -16,7 +16,7 @@
     --color-paper:   #ededea;
     --color-black:   #2d2a28;
     --color-white:   #ffffff;
-    --color-green:   #9fa628;
+    --color-green:   #929825;
     --color-red:     #bf0000;
     --color-gray-70: #707070;
 
@@ -128,10 +128,11 @@ button svg {
 }
 
 .button--add {
-    display: flex;
     align-items: center;
     background-color: var(--color-black);
     color: var(--color-white);
+    display: flex;
+    font-size: var(--font-size-0);
     padding-left: var(--space);
     padding-right: var(--space);
 }
@@ -148,6 +149,7 @@ button svg {
 }
 
 .button--save {
+    font-size: var(--font-size-0);
     background-color: var(--color-black);
     color: var(--color-white);
     display: block;

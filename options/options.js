@@ -66,6 +66,7 @@ function hostInput(value) {
   input.value = value || '';
   input.type = 'text';
   input.setAttribute('placeholder', 'example.test');
+  input.setAttribute('aria-label', 'Domain name:');
 
   // Remove http:// and https:// from the input string.
   input.addEventListener('blur', (e) => {

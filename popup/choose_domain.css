@@ -95,7 +95,7 @@ button:hover {
     background-color: transparent;
     width: 100%;
     border: 0;
-    font-size: var(--font-size--1);
+    font-size: var(--font-size-0);
     text-align: left;
     align-items: center;
     line-height: 1;
@@ -116,7 +116,7 @@ button:hover {
     font-family: var(--font-family-sans);
     font-size: var(--font-size-0);
     line-height: 1.4;
-    margin: 0 var(--space--1) var(--space);
+    margin: var(--space) var(--space--1);
 }
 
 .hidden {
