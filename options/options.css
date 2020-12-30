@@ -1,12 +1,9 @@
 :root {
     /* Font helpers. */
     --font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --font-family-serif: Iowan Old Style, Apple Garamond, Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --font-size-3: 2.25rem;
-    --font-size-2: 1.5rem;
-    --font-size-1: 1.25rem;
-    --font-size-0: 1rem;
-    --font-size--1: .813rem;
+    --font-family-serif: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-size-1: 2.25rem;
+    --font-size-0: 1.25rem;
 
     /* Spacing helpers. */
     --space--3: .444rem;
@@ -14,7 +11,6 @@
     --space--1: 1rem;
     --space: 1.5rem;
     --space-1: 2.55rem;
-    --space-2: 3.6rem;
 
     /* Color definitions. */
     --color-paper:   #ededea;
@@ -23,6 +19,8 @@
     --color-green:   #9fa628;
     --color-red:     #bf0000;
     --color-gray-70: #707070;
+
+    font-family: var(--font-family-sans);
 }
 
 html {
@@ -53,7 +51,7 @@ header {
 
 h1 {
     font-family: var(--font-family-serif);
-    font-size: var(--font-size-3);
+    font-size: var(--font-size-1);
     line-height: 1;
     margin: var(--space-1);
 }
@@ -102,7 +100,7 @@ h1 {
 input[type="text"] {
     border-radius: var(--space--1);
     border: 0;
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-0);
     height: 2.5em;
     margin-bottom: var(--space);
     outline: 0;
@@ -113,7 +111,7 @@ input[type="text"] {
 button {
     border: 0;
     box-shadow: -2px 2px 4px rgba(0,0,0,.1);
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-0);
     outline: 0;
     transition: .4s background-color;
 }

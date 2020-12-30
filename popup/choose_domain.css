@@ -1,11 +1,30 @@
 :root {
-    font-size: 1.25rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* Font helpers. */
+    --font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-serif: Iowan Old Style, Apple Garamond, Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-size-1: 1.25rem;
+    --font-size-0: 1rem;
+    --font-size--1: .813rem;
+
+    /* Spacing helpers. */
+    --space--2: .444rem;
+    --space--1: 1rem;
+    --space: 1.5rem;
+    --space-1: 2.55rem;
+
+    /* Color definitions. */
+    --color-paper:   #ededea;
+    --color-black:   #2d2a28;
+    --color-white:   #ffffff;
+    --color-green:   #9fa628;
+
+    font-family: var(--font-family-sans);
 }
 
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -13,77 +32,91 @@ html {
 html,
 body {
     margin: 0;
-    padding: .5rem;
-    background-color: #202020;
-    max-width: 15em;
-    color: white;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-size: var(--font-size-1);
+    padding: 0;
+    width: 15em;
+}
+
+header {
+    align-items: center;
+    background-color: var(--color-paper);
+    display: flex;
+    justify-content: space-between;
 }
 
 h1 {
-    font-size: 1rem;
-    color: #de7255;
-    margin: 0 0 1rem;
-}
-
-#hosts {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-button {
-    display: block;
-    padding: 1em 0;
-    flex: 1 1 100%;
-    background-color: transparent;
-    color: white;
-    border: 0;
-    font-size: .75rem;
-    text-align: left;
-}
-
-button.current::after {
-    content: '•';
-    color: #ff683f;
-    font-weight: bold;
-    font-size: 1.5em;
+    font-size: var(--font-size-1);
+    font-family: var(--font-family-serif);
+    margin-bottom: 0;
     line-height: 1;
-    top: .1em;
-    position: relative;
-    margin-left: .5em;
-}
-
-button:not(:last-child) {
-    border-bottom: 1px dotted rgba(255,255,255,.2);
+    margin-left: var(--space--1);
+    margin-top: 0;
 }
 
 button:focus,
 button:hover {
-    color: #ff683f;
     cursor: pointer;
 }
 
 #preferences-button {
-    padding: 0;
+    padding: var(--space--2);
     display: block;
-    width: 1.5em;
-    height: 1.5em;
-    position: absolute;
-    top: 1.5em;
-    right: 1.25em;
-    opacity: .5;
-    transition: .5s opacity;
+    width: var(--space-1);
+    height: var(--space-1);
+    background-color: var(--color-black);
+    border: 0;
+    flex: 0 0 auto;
+    transition: .4s background-color;
 }
 
 #preferences-button:focus,
 #preferences-button:hover {
-    opacity: 1;
+    background-color: var(--color-green);
 }
 
 #preferences-button svg {
-    fill: white;
-    width: auto;
+    fill: var(--color-white);
+    fill-opacity: .7;
+    width: var(--space);
+    height: var(--space);
     display: block;
     margin: 0;
+}
+
+.domain {
+    display: block;
+    padding: var(--space) var(--space--1);
+    background-color: transparent;
+    width: 100%;
+    border: 0;
+    font-size: var(--font-size--1);
+    text-align: left;
+    align-items: center;
+    line-height: 1;
+}
+
+.domain:not(:last-child) {
+    border-bottom: 1px dotted rgba(0,0,0,.2);
+}
+
+.domain:focus,
+.domain:hover {
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+
+.welcome-note,
+#error-content {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-0);
+    line-height: 1.4;
+    margin: 0 var(--space--1) var(--space);
 }
 
 .hidden {

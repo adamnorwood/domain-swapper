@@ -50,13 +50,15 @@ function updateHostsList(result) {
 
                 const button = document.createElement('button');
                 button.innerText = host;
+                button.classList.add('domain');
 
-                if (new URL(tabs[0].url).host == host) {
-                    button.classList.add('current');
+                if (1 == result.hosts.length) {
+                    hostsContainer.appendChild(button);
+                } else {
+                    if (new URL(tabs[0].url).host !== host) {
+                        hostsContainer.appendChild(button);
+                    }
                 }
-
-                hostsContainer.appendChild(button);
-
             });
         });
 
@@ -64,7 +66,7 @@ function updateHostsList(result) {
 
         const welcomeNote = document.createElement('p');
         welcomeNote.classList.add('welcome-note');
-        welcomeNote.innerHTML = 'Click the Settings gear to set some domains!';
+        welcomeNote.innerHTML = 'Click the gear icon to add some domains to your list!';
         hostsContainer.appendChild(welcomeNote);
 
     }
