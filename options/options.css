@@ -1,6 +1,28 @@
 :root {
-    font-size: 1.25rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* Font helpers. */
+    --font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-serif: Iowan Old Style, Apple Garamond, Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-size-3: 2.25rem;
+    --font-size-2: 1.5rem;
+    --font-size-1: 1.25rem;
+    --font-size-0: 1rem;
+    --font-size--1: .813rem;
+
+    /* Spacing helpers. */
+    --space--3: .444rem;
+    --space--2: .666rem;
+    --space--1: 1rem;
+    --space: 1.5rem;
+    --space-1: 2.55rem;
+    --space-2: 3.6rem;
+
+    /* Color definitions. */
+    --color-paper:   #ededea;
+    --color-black:   #2d2a28;
+    --color-white:   #ffffff;
+    --color-green:   #9fa628;
+    --color-red:     #bf0000;
+    --color-gray-70: #707070;
 }
 
 html {
@@ -11,121 +33,131 @@ html {
   box-sizing: inherit;
 }
 
+body {
+    color: var(--color-black);
+}
+
 .container {
-    background-color: #ededea;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: var(--color-paper);
+    margin: var(--space) auto;
     width: 100%;
 }
 
 header {
+    align-items: stretch;
+    border-bottom: 1px solid rgba(0,0,0,.1);
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
-    margin-bottom: 2em;
-    border-bottom: 1px solid rgba(0,0,0,.1);
+    margin-bottom: var(--space-1);
 }
 
 h1 {
-    font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-    font-size: 2.4em;
-    margin: 1em 1rem;
+    font-family: var(--font-family-serif);
+    font-size: var(--font-size-3);
     line-height: 1;
+    margin: var(--space-1);
 }
 
 #hosts {
-    margin-bottom: 2em;
-    margin-left: 2em;
-    min-height: 150px;
+    margin-bottom: var(--space-1);
+    margin-left: var(--space-1);
+    min-height: 8em;
 }
 
+/* Hide the welcome message when there are domains added. */
 #hosts:not([data-count="0"]) .initial-message {
     display: none;
 }
 
 .initial-message {
-    color: #333;
     font-size: 1.75em;
     text-align: center;
 }
 
 .initial-message img {
     display: inline-block;
-    margin-left: 1em;
-    margin-bottom: .15em;
+    margin-bottom: var(--space--3);
+    margin-left: var(--space--1);
     opacity: .5;
 }
 
+/* Let's make the initial message look a bit nicer on narrow viewports. */
 @media screen and (max-width: 500px) {
     .initial-message {
-        display: flex;
         align-items: flex-end;
+        display: flex;
     }
 
     .initial-message img {
         flex: 1 1 auto;
-        margin-right: 1em;
-        margin-left: .5em;
+        margin-left: var(--space--2);
+        margin-right: var(--space);
     }
 
     .initial-message span {
         flex: 0 1 auto;
     }
-
 }
 
 input[type="text"] {
-    display: inline-block;
-    margin-bottom: 1em;
-    font-size: 1.25em;
-    height: 2.5em;
-    padding-left: .5em;
-    padding-right: 2.5rem;
-    margin-right: .5em;
-    border-radius: .66em;
+    border-radius: var(--space--1);
     border: 0;
+    font-size: var(--font-size-1);
+    height: 2.5em;
+    margin-bottom: var(--space);
     outline: 0;
+    padding-left: var(--space--1);
+    padding-right: var(--space-1);
 }
 
+button {
+    border: 0;
+    box-shadow: -2px 2px 4px rgba(0,0,0,.1);
+    font-size: var(--font-size-1);
+    outline: 0;
+    transition: .4s background-color;
+}
+
+button:focus,
 button:hover {
     cursor: pointer;
+}
+
+button svg {
+    height: var(--space);
+    width: var(--space);
+    fill: var(--color-gray-70);
 }
 
 .button--add {
     display: flex;
     align-items: center;
-    background-color: black;
-    color: white;
-    margin-bottom: 0;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding-left: var(--space);
+    padding-right: var(--space);
 }
 
 .button--add:focus,
 .button--add:hover {
-    background-color: #9fa628;
+    background-color: var(--color-green);
 }
 
 .button--add svg {
-    margin-right: .5em;
-    fill: white;
     fill-opacity: .5;
+    fill: var(--color-white);
+    margin-right: var(--space--2);
 }
 
 .button--save {
+    background-color: var(--color-black);
+    color: var(--color-white);
     display: block;
-    text-align: center;
-    padding: .6666em;
-    background-color: black;
-    color: white;
     letter-spacing: .1em;
+    padding: var(--space--1);
+    text-align: center;
     text-transform: uppercase;
     width: 100%;
-}
-
-.button--save:not([disabled]):focus,
-.button--save:not([disabled]):hover {
-    background-color: #9fa628;
 }
 
 .button--save[disabled] {
@@ -134,54 +166,36 @@ button:hover {
 
 .button--save[disabled]:hover {
     cursor: initial;
-    background-color: black;
+    background-color: var(--color-black);
+}
+
+.button--save:not([disabled]):focus,
+.button--save:not([disabled]):hover {
+    background-color: var(--color-green);
 }
 
 .button--remove {
-    width: 1.75em;
-    height: 1.75em;
-    padding: 0;
     border-radius: 50%;
+    height: var(--space-1);
+    left: calc(-1 * var(--space));
+    padding: 0;
     position: relative;
-    left: -2.75em;
-    top: .15em;
+    text-align: center;
+    width: var(--space-1);
 }
 
 .button--remove svg {
-    margin: 0 auto;
     display: block;
-    padding-left: 1px;
-    padding-top: 1px;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .button--remove:focus,
 .button--remove:hover {
-    background-color: #fc2f24;
+    background-color: var(--color-red);
 }
 
 .button--remove:focus svg,
 .button--remove:hover svg {
-    fill: white;
-}
-
-button {
-    outline: 0;
-    border: 0;
-    background-color: #f0f0f0;
-    color: #202020;
-    padding: .5em 1em;
-    font-size: 1.25em;
-    box-shadow: 2px 2px 4px rgba(0,0,0,.1);
-    transition: .4s background-color;
-}
-
-button:focus,
-button:hover {
-    background-color: #e4e4e4;
-}
-
-button svg {
-    height: 1em;
-    width: 1em;
-    fill: #707070;
+    fill: var(--color-white);
 }
