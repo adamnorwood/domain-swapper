@@ -4,7 +4,7 @@
             "updates": [
                 {
                     "version": "1.0.0",
-                    "update_link": "https://adamnorwood.com/domain-swapper/web-ext-artifacts/domain_swapper-1.0.0-an+fx.xpi"
+                    "update_link": "https://github.com/adamnorwood/domain-swapper/releases/download/v1.0.0/domain_swapper-1.0.0-an+fx.xpi"
                 }
             ]
         }
