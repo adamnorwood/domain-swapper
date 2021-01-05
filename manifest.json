@@ -23,5 +23,10 @@
   "options_ui": {
     "page": "options/options.html",
     "browser_style": true
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "update_url": "https://github.com/adamnorwood/domain-swapper/blob/main/updates.json"
+    }
   }
 }
