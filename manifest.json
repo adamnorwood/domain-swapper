@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Domain Swapper",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Jump between hostnames but keep the rest of your current URL path!",
   "icons": {
     "48": "icons/icon.svg",
