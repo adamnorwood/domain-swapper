@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "Jump between hostnames but keep the rest of your current URL path!",
   "icons": {
-    "48": "icons/icon-48.png",
-    "96": "icons/icon-96.png"
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
   },
   "background": {
     "scripts": ["background.js"]
@@ -16,7 +16,7 @@
       "tabs"
   ],
   "page_action": {
-    "default_icon": "icons/icon-32.png",
+    "default_icon": "icons/icon.svg",
     "default_title": "Domain Swapper",
     "default_popup": "popup/choose_domain.html"
   },

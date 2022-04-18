@@ -13,3 +13,8 @@ Currently only Firefox is supported, but other browsers with Web Extension API s
 * Use the **+ Add Domain** button to add domain names that you regularly need to switch between. These can include port numbers (e.g. `localhost:3000`), but no need to include protocols or trailing slashes (e.g. just put in `example.com` instead of `https://example.com`).
 * Don't forget to hit **Save** to save your new domains!
 * Close the Settings panel, and now when you click on the Domain Swapper icon in your address bar you will see your customized list of domain names. Click one of those when you're ready to jump over to that other hostname!
+
+## The Fine Print
+
+Extension icon SVG by Noun Project user [rajakumara](https://thenounproject.com/rajakumara12121/), licensed as [Creative Commons CC BY](https://creativecommons.org/licenses/by/4.0/) (modifications made to the icon: cropping to artwork
+dimensions, optimization with SVGOMG).

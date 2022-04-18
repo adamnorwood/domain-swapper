@@ -4,8 +4,8 @@ const APPLICABLE_PROTOCOLS = ["http:", "https:"];
    Only operates on tabs whose URL's protocol is applicable. */
 function initializePageAction(tab) {
     if (protocolIsApplicable(tab.url)) {
-        browser.pageAction.setIcon({tabId: tab.id, path: "icons/icon-48.png"});
-        browser.pageAction.setTitle({tabId: tab.id, title: 'Swap hostnames'});
+        browser.pageAction.setIcon({tabId: tab.id, path: "icons/icon.svg"});
+        browser.pageAction.setTitle({tabId: tab.id, title: 'Swap domains'});
         browser.pageAction.show(tab.id);
   }
 }
