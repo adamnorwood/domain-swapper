@@ -8,7 +8,13 @@ export const HostsView = () => {
 
   return (
     <div>
-      <h2>IN hosts.tsx</h2>
+      <h2>Hosts!</h2>
+
+      <ul>
+        {hosts.hosts.map((host) => (
+          <li>{host}</li>
+        ))}
+      </ul>
     </div>
   )
 }
