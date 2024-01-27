@@ -1,18 +1,18 @@
 import { useAppDispatch, useAppSelector } from "~store"
 
-export const HostsView = () => {
+export const DomainsView = () => {
   const dispatch = useAppDispatch()
 
   // Make sure to use "useAppSelector" instead of "useSelector" to automatically get the correct types
-  const hosts = useAppSelector((state) => state.hosts)
+  const domains = useAppSelector((state) => state.domains)
 
   return (
     <div>
-      <h2>Hosts!</h2>
+      <h2>domains!</h2>
 
       <ul>
-        {hosts.hosts.map((host) => (
-          <li>{host}</li>
+        {domains.domainsList.map((domain, index) => (
+          <li key={index}>{domain.domain}</li>
         ))}
       </ul>
     </div>

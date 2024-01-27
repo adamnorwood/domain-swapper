@@ -2,7 +2,6 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { useDispatch, useSelector } from "react-redux"
 import type { TypedUseSelectorHook } from "react-redux"
 import { syncStorage } from "redux-persist-webextension-storage"
-import hostsReducer from "./features/hostsSlice"
 
 import {
   FLUSH,
@@ -17,9 +16,11 @@ import {
 } from "@plasmohq/redux-persist"
 import { Storage } from "@plasmohq/storage"
 
+import domainsReducer from "./features/domainsSlice"
+
 // Here you can add all your reducers
 const combinedReducers = combineReducers({
-  hosts: hostsReducer
+  domains: domainsReducer
 })
 
 const persistConfig = {

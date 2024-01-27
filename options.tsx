@@ -1,8 +1,8 @@
+import { DomainSwapper } from "features/domainSwapper"
 import { Provider } from "react-redux"
 
 import { PersistGate } from "@plasmohq/redux-persist/integration/react"
 
-import { HostsUpdate } from "features/hostsUpdate"
 import { persistor, store } from "~store"
 
 function Options() {
@@ -10,7 +10,7 @@ function Options() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <h1>Domain Swapper</h1>
-        <HostsUpdate />
+        <DomainSwapper />
       </PersistGate>
     </Provider>
   )
