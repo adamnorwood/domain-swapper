@@ -1,40 +1,51 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { nanoid } from "nanoid/non-secure"
 
 export const domainsSlice = createSlice({
   name: "domains",
   initialState: {
-    domainsList: [],
-    domainInput: ""
+    domainsList: []
   },
   reducers: {
-    addDomain: (state) => {
-      if (0 === state.domainInput.trim().length) {
-        return
+    addDomain: (state, action) => {
+      if (0 === action.payload.trim().length) {
+        return {
+          ...state
+        }
       }
 
-      state.domainsList.push({
-        id: 1,
-        domain: state.domainInput
-      })
-    },
-
-    updateDomainInput: (state, action) => {
-      state.domainInput = action.payload
+      return {
+        ...state,
+        domainsList: [
+          ...state.domainsList,
+          {
+            id: nanoid(),
+            domain: action.payload
+          }
+        ]
+      }
     },
 
     removeDomain: (state, action) => {
-      state.domainsList.splice(action.payload, 1)
+      return {
+        ...state,
+        domainsList: state.domainsList.filter(
+          (domain) => domain.id !== action.payload
+        )
+      }
     },
 
     clearDomains: (state) => {
-      state.domainsList = []
+      return {
+        ...state,
+        domainsList: []
+      }
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { addDomain, updateDomainInput, removeDomain, clearDomains } =
-  domainsSlice.actions
+export const { addDomain, removeDomain, clearDomains } = domainsSlice.actions
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

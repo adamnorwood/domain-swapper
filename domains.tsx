@@ -11,8 +11,8 @@ export const DomainsView = () => {
       <h2>domains!</h2>
 
       <ul>
-        {domains.domainsList.map((domain, index) => (
-          <li key={index}>{domain.domain}</li>
+        {domains.domainsList.map((domain) => (
+          <li key={domain.id}>{domain.domain}</li>
         ))}
       </ul>
     </div>
