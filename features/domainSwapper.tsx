@@ -5,7 +5,8 @@ import {
   addDomain,
   clearDomains,
   removeDomain,
-  selectDomains
+  selectDomains,
+  updateDomain
 } from "./domainsSlice"
 
 export function DomainSwapper() {
@@ -18,6 +19,10 @@ export function DomainSwapper() {
   // because the Chrome (and other browsers?) Storage API enforces
   // hard limits on the maximum number of storage saves per minute!
   const [domainInputValue, setDomainInputValue] = useState("")
+
+  // Let's also track when the user is wanting to edit a domain in the list.
+  const [domainBeingEdited, setDomainBeingEdited] = useState("")
+  const [domainEditInputValue, setDomainEditInputValue] = useState("")
 
   return (
     <div>
@@ -47,13 +52,53 @@ export function DomainSwapper() {
       <ul>
         {domains.map((domain) => (
           <li key={domain.id}>
-            {domain.domain}
+            {domainBeingEdited === domain.id ? (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  dispatch(
+                    updateDomain({
+                      id: domain.id,
+                      domain: domainEditInputValue
+                    })
+                  )
+                  setDomainInputValue("")
+                  setDomainBeingEdited("")
+                }}>
+                <input
+                  type="text"
+                  placeholder="Enter domain…"
+                  value={
+                    "" !== domainEditInputValue
+                      ? domainEditInputValue
+                      : domain.domain
+                  }
+                  onChange={(e) => setDomainEditInputValue(e.target.value)}
+                />
 
-            <button
-              className="button--remove"
-              onClick={() => dispatch(removeDomain(domain.id))}>
-              Remove
-            </button>
+                <button type="submit" className="button--save">
+                  Save
+                </button>
+              </form>
+            ) : (
+              <div>
+                {domain.domain}
+                <button
+                  className="button--edit"
+                  onClick={() => {
+                    setDomainBeingEdited(domain.id)
+                    setDomainEditInputValue(domain.domain)
+                  }}>
+                  Edit
+                </button>
+
+                <button
+                  className="button--remove"
+                  onClick={() => dispatch(removeDomain(domain.id))}>
+                  Remove
+                </button>
+              </div>
+            )}
           </li>
         ))}
       </ul>
