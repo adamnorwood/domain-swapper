@@ -8,11 +8,30 @@ export const DomainsView = () => {
 
   return (
     <div>
-      <h2>domains!</h2>
-
       <ul>
         {domains.domainsList.map((domain) => (
-          <li key={domain.id}>{domain.domain}</li>
+          <li
+            key={domain.id}
+            onClick={(e) => {
+              chrome.tabs
+                .query({ active: true, currentWindow: true })
+                .then((tab) => {
+                  const url = new URL(tab[0].url)
+                  const newURL = new URL(`https://${domain.domain}/`)
+                  url.host = newURL.host
+                  url.hostname = newURL.hostname
+                  url.port = newURL.port
+
+                  chrome.tabs.update(undefined, {
+                    url: url.href
+                  })
+
+                  // Close the popup now that the user has selected a domain.
+                  window.close()
+                })
+            }}>
+            {domain.domain}
+          </li>
         ))}
       </ul>
     </div>
