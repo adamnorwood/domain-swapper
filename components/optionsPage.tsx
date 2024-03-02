@@ -21,13 +21,13 @@ import {
   clearDomains,
   selectDomains,
   swapDomain,
-} from "./domainsSlice"
+} from "./domainSwapperSlice"
 
 import {
-  SortableItem
-} from "./sortableItem"
+  DomainEditor
+} from "./domainEditor"
 
-export function DomainSwapper() {
+export function OptionsPage() {
   const domains = useSelector(selectDomains)
   const dispatch = useDispatch()
 
@@ -75,7 +75,7 @@ export function DomainSwapper() {
         <SortableContext items={domains}>
           <ul>
             {domains.map((domain) => (
-              <SortableItem key={domain.id} item={domain} />
+              <DomainEditor key={domain.id} item={domain} />
             ))}
           </ul>
         </SortableContext>

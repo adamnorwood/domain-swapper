@@ -22,9 +22,9 @@ import {
   selectDomains,
   removeDomain,
   updateDomain
-} from "./domainsSlice"
+} from "./domainSwapperSlice"
 
-export function SortableItem({ item }) {
+export function DomainEditor({ item }) {
   const { id, domain } = item
   const {
     attributes,
@@ -48,7 +48,7 @@ export function SortableItem({ item }) {
   const dispatch = useDispatch()
 
   return (
-    <li ref={setNodeRef} style={style} {...attributes} draggable>
+    <li ref={setNodeRef} style={style} {...attributes}>
       {domainBeingEdited === id ? (
         <form
           onSubmit={(e) => {
@@ -76,6 +76,7 @@ export function SortableItem({ item }) {
       ) : (
         <div>
           <button
+            draggable
             className="button--drag"
             ref={setActivatorNodeRef}
             {...listeners}>

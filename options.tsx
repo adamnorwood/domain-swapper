@@ -1,4 +1,4 @@
-import { DomainSwapper } from "features/domainSwapper"
+import { OptionsPage } from "~components/optionsPage"
 import { Provider } from "react-redux"
 
 import { PersistGate } from "@plasmohq/redux-persist/integration/react"
@@ -10,7 +10,7 @@ function Options() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <h1>Domain Swapper</h1>
-        <DomainSwapper />
+        <OptionsPage />
       </PersistGate>
     </Provider>
   )
