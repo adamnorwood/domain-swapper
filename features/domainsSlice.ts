@@ -51,6 +51,21 @@ export const domainsSlice = createSlice({
       }
     },
 
+    swapDomain: (state, action) => {
+      const index1 = action.payload.activeIndex
+      const index2 = action.payload.overIndex
+      const results = state.domainsList.slice();
+      const item1 = state.domainsList[index1];
+
+      results[index1] = state.domainsList[index2];
+      results[index2] = item1;
+
+      return {
+        ...state,
+        domainsList: results
+      }
+    },
+
     clearDomains: (state) => {
       return {
         ...state,
@@ -61,8 +76,13 @@ export const domainsSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addDomain, clearDomains, removeDomain, updateDomain } =
-  domainsSlice.actions
+export const {
+  addDomain,
+  clearDomains,
+  removeDomain,
+  swapDomain,
+  updateDomain
+} = domainsSlice.actions
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
