@@ -1,17 +1,9 @@
-import React from "react"
-import {
-  useSortable,
-} from "@dnd-kit/sortable"
+import { useSortable } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
+import React, { useState } from "react"
+import { useDispatch } from "react-redux"
 
-import { useState, useRef, forwardRef } from "react"
-import { useDispatch, useSelector } from "react-redux"
-
-import {
-  selectDomains,
-  removeDomain,
-  updateDomain
-} from "./domainSwapperSlice"
+import { removeDomain, updateDomain } from "./domainSwapperSlice"
 
 export function DomainEditor({ item }) {
   const { id, domain } = item
@@ -35,13 +27,8 @@ export function DomainEditor({ item }) {
 
   const dispatch = useDispatch()
   const inputRef = React.useCallback((node) => {
-    node?.focus();
-  }, []);
-
-  function handleEditClick(inputRef) {
-    //inputRef.current.focus()
-    console.dir(inputRef.current)
-  }
+    node?.focus()
+  }, [])
 
   return (
     <li ref={setNodeRef} style={style} {...attributes}>
@@ -69,6 +56,16 @@ export function DomainEditor({ item }) {
           <button type="submit" className="button--save">
             Save
           </button>
+
+          <button
+            type="button"
+            className="button--cancel"
+            onClick={(e) => {
+              setDomainBeingEdited(null)
+              setDomainEditInputValue(null)
+            }}>
+            Cancel
+          </button>
         </form>
       ) : (
         <div>
@@ -87,7 +84,6 @@ export function DomainEditor({ item }) {
             onClick={(e) => {
               setDomainBeingEdited(id)
               setDomainEditInputValue(domain)
-              handleEditClick(inputRef)
             }}>
             Edit
           </button>
