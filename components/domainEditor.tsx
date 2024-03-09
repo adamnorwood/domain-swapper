@@ -1,21 +1,10 @@
+import React from "react"
 import {
-  closestCenter,
-  DndContext,
-  KeyboardSensor,
-  PointerSensor,
-  useSensor,
-  useSensors
-} from "@dnd-kit/core"
-import {
-  arrayMove,
-  SortableContext,
-  sortableKeyboardCoordinates,
   useSortable,
-  verticalListSortingStrategy
 } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
 
-import { useState } from "react"
+import { useState, useRef, forwardRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import {
@@ -44,8 +33,15 @@ export function DomainEditor({ item }) {
     transition
   }
 
-  const domains = useSelector(selectDomains)
   const dispatch = useDispatch()
+  const inputRef = React.useCallback((node) => {
+    node?.focus();
+  }, []);
+
+  function handleEditClick(inputRef) {
+    //inputRef.current.focus()
+    console.dir(inputRef.current)
+  }
 
   return (
     <li ref={setNodeRef} style={style} {...attributes}>
@@ -63,6 +59,7 @@ export function DomainEditor({ item }) {
             setDomainBeingEdited("")
           }}>
           <input
+            ref={inputRef}
             type="text"
             placeholder="Enter domain…"
             value={domainEditInputValue}
@@ -87,9 +84,10 @@ export function DomainEditor({ item }) {
 
           <button
             className="button--edit"
-            onClick={() => {
+            onClick={(e) => {
               setDomainBeingEdited(id)
               setDomainEditInputValue(domain)
+              handleEditClick(inputRef)
             }}>
             Edit
           </button>
