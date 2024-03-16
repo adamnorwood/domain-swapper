@@ -1,3 +1,4 @@
+import { PaintRoller } from "lucide-react"
 import { useDispatch } from "react-redux"
 
 import { clearDomains } from "./domainSwapperSlice"
@@ -7,7 +8,7 @@ export function ClearAllDomains() {
 
   return (
     <button className="button--clear" onClick={() => dispatch(clearDomains())}>
-      Clear All
+      <PaintRoller /> Start fresh
     </button>
   )
 }

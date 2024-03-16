@@ -1,5 +1,6 @@
 import { useSortable } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
+import { Check, GripVertical, Pencil, Trash2, X } from "lucide-react"
 import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 
@@ -54,7 +55,7 @@ export function DomainEditor({ item }) {
           />
 
           <button type="submit" className="button--save">
-            Save
+            <Check /> Save
           </button>
 
           <button
@@ -64,7 +65,7 @@ export function DomainEditor({ item }) {
               setDomainBeingEdited(null)
               setDomainEditInputValue(null)
             }}>
-            Cancel
+            <X /> Cancel
           </button>
         </form>
       ) : (
@@ -74,7 +75,7 @@ export function DomainEditor({ item }) {
             className="button--drag"
             ref={setActivatorNodeRef}
             {...listeners}>
-            Drag
+            <GripVertical /> Drag
           </button>
 
           {domain}
@@ -85,13 +86,13 @@ export function DomainEditor({ item }) {
               setDomainBeingEdited(id)
               setDomainEditInputValue(domain)
             }}>
-            Edit
+            <Pencil /> Edit
           </button>
 
           <button
             className="button--remove"
             onClick={() => dispatch(removeDomain(id))}>
-            Remove
+            <Trash2 /> Remove
           </button>
         </div>
       )}

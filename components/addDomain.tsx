@@ -27,7 +27,7 @@ export function AddDomain() {
         onChange={(e) => setDomainInputValue(e.target.value)}
       />
       <button type="submit" className="button--add">
-        Add Domain
+        Add
       </button>
     </form>
   )
