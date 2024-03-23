@@ -26,27 +26,29 @@ export const DomainsPopup = () => {
       {domains.domainsList.map(
         (domain) =>
           currentHost.host !== domain.domain && (
-            <li
-              key={domain.id}
-              onClick={(e) => {
-                chrome.tabs
-                  .query({ active: true, currentWindow: true })
-                  .then((tab) => {
-                    const url = new URL(tab[0].url)
-                    const newURL = new URL(`https://${domain.domain}/`)
-                    url.host = newURL.host
-                    url.hostname = newURL.hostname
-                    url.port = newURL.port
+            <li key={domain.id}>
+              <button
+                className="domain"
+                onClick={(e) => {
+                  chrome.tabs
+                    .query({ active: true, currentWindow: true })
+                    .then((tab) => {
+                      const url = new URL(tab[0].url)
+                      const newURL = new URL(`https://${domain.domain}/`)
+                      url.host = newURL.host
+                      url.hostname = newURL.hostname
+                      url.port = newURL.port
 
-                    chrome.tabs.update(undefined, {
-                      url: url.href
+                      chrome.tabs.update(undefined, {
+                        url: url.href
+                      })
+
+                      // Close the popup now that the user has selected a domain.
+                      window.close()
                     })
-
-                    // Close the popup now that the user has selected a domain.
-                    window.close()
-                  })
-              }}>
-              {domain.domain}
+                }}>
+                {domain.domain}
+              </button>
             </li>
           )
       )}

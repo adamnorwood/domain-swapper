@@ -73,6 +73,9 @@ devDependencies:
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
+  utopia-core-scss:
+    specifier: ^1.0.1
+    version: 1.0.1
 
 packages:
 
@@ -5716,6 +5719,10 @@ packages:
     resolution: {integrity: sha512-6Z7Ma2aVEWisaL6TvBCy7P8rm2LQoPv6dJ7ecIaIixHcwfbJ0x7mWdbcwlIM5IGQxPZSFYeqRCqlOOeKoJYMkw==}
     engines: {node: '>= 4'}
     dev: false
+
+  /utopia-core-scss@1.0.1:
+    resolution: {integrity: sha512-1v4FLU6yrQPr8Zy0zJLesY9yAnCBrW1f8UbW/eV8zIEujqjUy5guMFbM4ANRo29QljpUPho91suDZZBnqUNFAQ==}
+    dev: true
 
   /vue@3.3.4:
     resolution: {integrity: sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw==}

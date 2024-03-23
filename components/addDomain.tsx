@@ -15,20 +15,25 @@ export function AddDomain() {
 
   return (
     <form
+      className="add-domain"
       onSubmit={(e) => {
         e.preventDefault()
         dispatch(addDomain(domainInputValue))
         setDomainInputValue("")
       }}>
-      <input
-        type="text"
-        placeholder="Enter domain…"
-        value={domainInputValue}
-        onChange={(e) => setDomainInputValue(e.target.value)}
-      />
-      <button type="submit" className="button--add">
-        Add
-      </button>
+      <label htmlFor="domain-add-input">Drop a domain into your list:</label>
+      <div className="add-domain-input-wrapper">
+        <input
+          id="domain-add-input"
+          type="text"
+          placeholder="Enter domain…"
+          value={domainInputValue}
+          onChange={(e) => setDomainInputValue(e.target.value)}
+        />
+        <button type="submit" className="button--add">
+          Add
+        </button>
+      </div>
     </form>
   )
 }

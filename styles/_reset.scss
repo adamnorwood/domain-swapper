@@ -1,0 +1,43 @@
+/* Use border-box globally. */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin from all elements. */
+* {
+    margin: 0;
+}
+
+// Set a sensible default line-height using this interesting calc trick
+// discovered here: https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/
+* {
+    line-height: calc(3px + 2.5ex + 3px);
+}
+
+// Treat media as block elements, since we almost always intend to use them this way.
+svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+// Reset form element UI to use the font from their surrounding content, rather
+// than use the default OS fonts (which often come in at weird sizes, even).
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// Incredibly long text string (including URLs) will break a layout if their
+// container is too narrow, so attempt to account for that here.
+p, h1, h2, h3, h4, h5, h6, li {
+  overflow-wrap: break-word;
+}
+
+// We don't make much use of preformatted text, but in case we do, let's
+// set it such that it doesn't break layout when lines are too long.
+pre {
+    white-space: pre-wrap;
+}

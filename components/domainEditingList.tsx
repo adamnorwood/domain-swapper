@@ -26,7 +26,7 @@ export function DomainEditingList() {
                     ))}
                 </ul>
             </SortableContext>
-      </DndContext>
+        </DndContext>
     )
 
 }

@@ -32,7 +32,7 @@ export function DomainEditor({ item }) {
   }, [])
 
   return (
-    <li ref={setNodeRef} style={style} {...attributes}>
+    <li className="domain" ref={setNodeRef} style={style} {...attributes}>
       {domainBeingEdited === id ? (
         <form
           onSubmit={(e) => {
@@ -47,6 +47,7 @@ export function DomainEditor({ item }) {
             setDomainBeingEdited("")
           }}>
           <input
+            className="domain-text"
             ref={inputRef}
             type="text"
             placeholder="Enter domain…"
@@ -55,7 +56,7 @@ export function DomainEditor({ item }) {
           />
 
           <button type="submit" className="button--save">
-            <Check /> Save
+            <Check aria-label="Save this edit" />
           </button>
 
           <button
@@ -65,7 +66,7 @@ export function DomainEditor({ item }) {
               setDomainBeingEdited(null)
               setDomainEditInputValue(null)
             }}>
-            <X /> Cancel
+            <X aria-label="Cancel this edit" />
           </button>
         </form>
       ) : (
@@ -75,10 +76,10 @@ export function DomainEditor({ item }) {
             className="button--drag"
             ref={setActivatorNodeRef}
             {...listeners}>
-            <GripVertical /> Drag
+            <GripVertical aria-label="Reorder this domain in the list" />
           </button>
 
-          {domain}
+          <span className="domain-text">{domain}</span>
 
           <button
             className="button--edit"
@@ -86,13 +87,13 @@ export function DomainEditor({ item }) {
               setDomainBeingEdited(id)
               setDomainEditInputValue(domain)
             }}>
-            <Pencil /> Edit
+            <Pencil aria-label="Edit this domain" />
           </button>
 
           <button
             className="button--remove"
             onClick={() => dispatch(removeDomain(id))}>
-            <Trash2 /> Remove
+            <Trash2 aria-label="Remove this domain" />
           </button>
         </div>
       )}
