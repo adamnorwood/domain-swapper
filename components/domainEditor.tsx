@@ -92,7 +92,7 @@ export function DomainEditor({ item }) {
 
           <button
             className="button--remove"
-            onClick={() => dispatch(removeDomain(id))}>
+            onClick={() => window.confirm( 'Are you sure you want to delete this domain?' ) && dispatch(removeDomain(id))}>
             <Trash2 aria-label="Remove this domain" />
           </button>
         </div>
