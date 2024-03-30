@@ -70,6 +70,10 @@ body {
             opacity: .5;
         }
     }
+
+    .getting-started-message {
+        margin-block-start: var(--space-l);
+    }
 }
 
 .options {
