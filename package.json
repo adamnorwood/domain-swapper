@@ -40,6 +40,11 @@
     "permissions": [
       "activeTab",
       "storage"
-    ]
+    ],
+    "browser_specific_settings" : {
+      "gecko": {
+        "id": "{5ae60257-37eb-451f-ba4f-d37dbf6fa5c9}"
+      }
+    }
   }
 }
