@@ -1,3 +1,6 @@
+/**
+ * This component provides a means of clearing all domains from the store.
+ */
 import { PaintRoller } from "lucide-react"
 import { useDispatch } from "react-redux"
 
@@ -7,7 +10,13 @@ export function ClearAllDomains() {
   const dispatch = useDispatch()
 
   return (
-    <button className="button--clear" onClick={() => window.confirm( 'Are you sure you want to remove all of your domain and start over?' ) && dispatch(clearDomains())}>
+    <button
+      className="button--clear"
+      onClick={() =>
+        window.confirm(
+          "Are you sure you want to remove all of your domain and start over?"
+        ) && dispatch(clearDomains())
+      }>
       <PaintRoller /> Start fresh
     </button>
   )

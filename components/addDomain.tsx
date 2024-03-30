@@ -1,3 +1,6 @@
+/**
+ * This is the template for the Add Domain input component.
+ */
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 

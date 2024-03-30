@@ -1,3 +1,6 @@
+/**
+ * This is the template for the Options (Settings) page.
+ */
 import { Provider } from "react-redux"
 import Logo from "react:~assets/icon.svg"
 

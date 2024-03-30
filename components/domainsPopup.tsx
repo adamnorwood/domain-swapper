@@ -1,3 +1,7 @@
+/**
+ * This component provides the list of domains on the front-end Popup display,
+ * along with handling the action when a domain button is clicked.
+ */
 import { useState } from "react"
 
 import { useAppDispatch, useAppSelector } from "~store"
@@ -56,7 +60,8 @@ export const DomainsPopup = () => {
       </ul>
     ) : (
       <p className="getting-started-message">
-        To get started, open the Settings panel and add some domains / hostnames! ↓
+        To get started, open the Settings panel and add some domains /
+        hostnames! ↓
       </p>
     )
   ) : (

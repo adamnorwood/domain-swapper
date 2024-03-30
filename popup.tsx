@@ -1,3 +1,7 @@
+/**
+ * This template is for the extension's "popup" — the main user interface that
+ * appears when the user clicks the extension's button in the browser toolbar.
+ */
 import { Provider } from "react-redux"
 
 import { PersistGate } from "@plasmohq/redux-persist/integration/react"

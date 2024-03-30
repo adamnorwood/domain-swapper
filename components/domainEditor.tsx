@@ -1,3 +1,7 @@
+/**
+ * This component is for the individual domains on the Settings page, including
+ * all of the functionality around Editing, Deleting, and Drag-handling.
+ */
 import { useSortable } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
 import { Check, GripVertical, Pencil, Trash2, X } from "lucide-react"
@@ -92,7 +96,10 @@ export function DomainEditor({ item }) {
 
           <button
             className="button--remove"
-            onClick={() => window.confirm( 'Are you sure you want to delete this domain?' ) && dispatch(removeDomain(id))}>
+            onClick={() =>
+              window.confirm("Are you sure you want to delete this domain?") &&
+              dispatch(removeDomain(id))
+            }>
             <Trash2 aria-label="Remove this domain" />
           </button>
         </div>

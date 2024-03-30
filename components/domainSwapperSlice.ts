@@ -1,3 +1,7 @@
+/**
+ * This contains the React / Redux Toolkit slice and related dispatched actions.
+ * @see https://redux-toolkit.js.org/api/createslice
+ */
 import { createSlice } from "@reduxjs/toolkit"
 import { nanoid } from "nanoid/non-secure"
 
