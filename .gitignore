@@ -26,5 +26,8 @@ dist/
 # plasmo
 .plasmo
 
+# Keys for Plasmo Browser Submit / Browser Platform Publisher
+keys.json
+
 # typescript
 .tsbuildinfo
