@@ -1,0 +1,25 @@
+@use 'node_modules/utopia-core-scss/src/utopia' as utopia;
+
+:root {
+     @include utopia.generateTypeScale((
+        "minWidth": 320,
+        "maxWidth": 1240,
+        "minFontSize": 18,
+        "maxFontSize": 20,
+        "minTypeScale": 1.2,
+        "maxTypeScale": 1.25,
+        "positiveSteps": 5,
+        "negativeSteps": 2,
+        "prefix": "font-size-"
+    ));
+
+    @include utopia.generateSpaceScale((
+        "minWidth": 320,
+        "maxWidth": 1240,
+        "minSize": 18,
+        "maxSize": 20,
+        "positiveSteps": (1.5, 2),
+        "negativeSteps": (0.75, .5),
+        "prefix": "space-",
+  ));
+}

@@ -1,0 +1,23 @@
+:root {
+    color-scheme: light dark;
+    --envelope: oklch(98% 0.015 90);
+    --white: oklch(100% 0 0);
+    --pink: oklch(75% 0.11 355);
+    --gray-90: oklch(85% 0 0);
+    --gray-10: oklch(26% 0.001 17);
+    --gray-20: oklch(38% 0.005 17);
+    --green: oklch(73.5% 0.17 142);
+    --red: oklch(65.25% 0.228 24);
+
+    --background: var(--envelope);
+    --foreground: var(--white);
+    --highlight: var(--pink);
+    --confirm: var(--green);
+    --cancel: var(--red);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: var(--gray-20);
+    }
+}

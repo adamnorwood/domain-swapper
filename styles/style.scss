@@ -1,0 +1,288 @@
+@import 'reset';
+@import 'utopia';
+@import 'typography';
+@import 'colors';
+
+body {
+    background-color: var(--background);
+    font-size: var(--font-size-0);
+    padding-inline: var(--space-m);
+    padding-block-start: var(--space-m);
+    padding-block-end: var(--space-s);
+}
+
+.header {
+    column-gap: var(--space-s);
+    align-items: center;
+    display: flex;
+
+    h1 {
+        font-family: var(--font-family-sans);
+        font-weight: 900;
+        font-size: var(--font-size-2);
+        line-height: 1;
+    }
+}
+
+.logo {
+    width: 48px;
+}
+
+.popup {
+    inline-size: 320px;
+    max-inline-size: 100%;
+
+    ul {
+        margin-block-start: var(--space-m);
+        display: grid;
+        row-gap: var(--space-2xs);
+        font-family: var(--font-family-monospace);
+        list-style: none;
+        padding-inline: 0;
+    }
+
+    .wrong-protocol {
+        font-size: var(--font-size-0);
+        margin-block-start: var(--space-m);
+    }
+
+    .settings {
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        font-size: var(--font-size--1);
+        font-weight: 600;
+        align-items: center;
+        column-gap: .25em;
+        display: flex;
+        margin-inline-start: auto;
+        margin-block-start: var(--space-l);
+
+        &:focus-visible {
+            outline: 1px solid var(--pink);
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        svg {
+            opacity: .5;
+        }
+    }
+
+    .getting-started-message {
+        margin-block-start: var(--space-l);
+    }
+}
+
+.options {
+    max-width: 60ch;
+    margin-inline: auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 95dvh;
+
+    button {
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        appearance: none;
+    }
+
+    ul {
+        display: flex;
+        flex-flow: row wrap;
+        row-gap: var(--space-xs);
+        margin-inline: var(--space-l);
+        margin-block-start: 5em;
+        margin-block-end: 0;
+        padding: 0;
+    }
+
+    .footer {
+        font-size: var(--font-size--1);
+        font-weight: 600;
+        align-items: center;
+        display: flex;
+        margin-block-start: var(--space-m-l);
+
+        p {
+            display: flex;
+        }
+
+        a {
+            color: var(--black);
+        }
+
+        p,
+        button {
+            display: flex;
+            align-items: center;
+            column-gap: 0.33em;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--highlight);
+            outline-offset: 2px;
+        }
+
+        .button--clear {
+            margin-left: auto;
+        }
+    }
+
+    .button--drag {
+        flex-basis: var(--space-l);
+    }
+
+
+    .domain-text {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    input.domain-text {
+        margin-inline-start: var(--space-l);
+        padding-block: 0;
+        border: 0;
+    }
+}
+
+.domain {
+    background-color: var(--gray-10);
+    border-radius: 6px;
+    border: 4px solid transparent;
+    color: var(--foreground);
+    font-size: var(--font-size--1);
+    outline: 0;
+    box-shadow: 2px 4px 6px rgba(0,0,0,.3);
+    display: block;
+    inline-size: 100%;
+    padding-block: var(--space-2xs);
+
+    svg {
+        color: var(--foreground);
+    }
+
+    .popup &:focus,
+    .popup &:hover {
+        cursor: pointer;
+        border-color: var(--confirm);
+    }
+
+    .options & {
+
+        padding-block: var(--space-xs);
+
+        form,
+        div {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    button {
+        opacity: .6;
+        transition: .4s opacity;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus,
+        &:hover {
+            opacity: 1;
+            svg {
+                color: var(--highlight);
+            }
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--highlight) ;
+            outline-offset: 2px;
+        }
+    }
+
+    .button--drag {
+        &:hover {
+            cursor: move;
+        }
+    }
+
+    .button--edit,
+    .button--save {
+        margin-left: auto;
+    }
+
+    .button--save {
+        &:focus,
+        &:hover {
+            svg {
+                color: var(--confirm);
+            }
+        }
+    }
+
+    .button--cancel {
+        &:focus,
+        &:hover {
+            svg {
+                color: var(--cancel);
+            }
+        }
+    }
+}
+
+.add-domain {
+    margin-block-start: var(--space-l);
+
+    label {
+        font-size: var(--font-size--1);
+        font-weight: 600;
+        margin-inline-start: var(--space-m);
+    }
+
+    .add-domain-input-wrapper {
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        position: relative;
+        margin-block-start: .333em;
+    }
+
+    input {
+        inline-size: 100%;
+        border: 0;
+        outline: 1px solid var(--gray-90);
+        border-radius: 1em;
+        padding-inline: var(--space-m);
+        padding-block: .5em;
+        box-shadow: 2px 4px 8px rgba(0,0,0,.15);
+
+        &:focus {
+            outline-color: var(--highlight);
+        }
+    }
+
+    .button--add {
+        font-size: var(--font-size--1);
+        font-weight: 600;
+        position: absolute;
+        inset-inline-end: var(--space-m);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--highlight);
+            outline-offset: 2px;
+        }
+    }
+}
