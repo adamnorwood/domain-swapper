@@ -3,12 +3,8 @@
 @import 'typography';
 @import 'colors';
 
-:root {
-    --color-envelope: #FBF8EF;
-}
-
 body {
-    background-color: var(--color-envelope);
+    background-color: var(--background);
     font-size: var(--font-size-0);
     padding-inline: var(--space-m);
     padding-block-start: var(--space-m);
@@ -22,7 +18,7 @@ body {
 
     h1 {
         font-family: var(--font-family-sans);
-        font-weight: 600;
+        font-weight: 900;
         font-size: var(--font-size-2);
         line-height: 1;
     }
@@ -39,7 +35,7 @@ body {
     ul {
         margin-block-start: var(--space-m);
         display: grid;
-        row-gap: var(--space-s);
+        row-gap: var(--space-2xs);
         font-family: var(--font-family-monospace);
         list-style: none;
         padding-inline: 0;
@@ -126,6 +122,12 @@ body {
             }
         }
 
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--highlight);
+            outline-offset: 2px;
+        }
+
         .button--clear {
             margin-left: auto;
         }
@@ -149,24 +151,31 @@ body {
 }
 
 .domain {
-    background-color: var(--white);
+    background-color: var(--gray-10);
     border-radius: 6px;
-    border: 1px solid var(--gray-90);
+    border: 4px solid transparent;
+    color: var(--foreground);
     font-size: var(--font-size--1);
     outline: 0;
-    box-shadow: 2px 2px 6px -2px rgba(0,0,0,.1);
+    box-shadow: 2px 4px 6px rgba(0,0,0,.3);
     display: block;
     inline-size: 100%;
+    padding-block: var(--space-2xs);
+
+    svg {
+        color: var(--foreground);
+    }
 
     .popup &:focus,
     .popup &:hover {
         cursor: pointer;
-        border-color: var(--pink);
+        border-color: var(--confirm);
     }
 
     .options & {
 
         padding-block: var(--space-xs);
+
         form,
         div {
             display: flex;
@@ -175,8 +184,24 @@ body {
     }
 
     button {
+        opacity: .6;
+        transition: .4s opacity;
+
         &:hover {
             cursor: pointer;
+        }
+
+        &:focus,
+        &:hover {
+            opacity: 1;
+            svg {
+                color: var(--highlight);
+            }
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--highlight) ;
+            outline-offset: 2px;
         }
     }
 
@@ -189,6 +214,24 @@ body {
     .button--edit,
     .button--save {
         margin-left: auto;
+    }
+
+    .button--save {
+        &:focus,
+        &:hover {
+            svg {
+                color: var(--confirm);
+            }
+        }
+    }
+
+    .button--cancel {
+        &:focus,
+        &:hover {
+            svg {
+                color: var(--cancel);
+            }
+        }
     }
 }
 
@@ -217,6 +260,10 @@ body {
         padding-inline: var(--space-m);
         padding-block: .5em;
         box-shadow: 2px 4px 8px rgba(0,0,0,.15);
+
+        &:focus {
+            outline-color: var(--highlight);
+        }
     }
 
     .button--add {
@@ -227,6 +274,11 @@ body {
 
         &:hover {
             cursor: pointer;
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--highlight);
+            outline-offset: 2px;
         }
     }
 }

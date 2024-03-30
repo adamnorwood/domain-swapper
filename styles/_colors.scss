@@ -1,5 +1,23 @@
 :root {
+    color-scheme: light dark;
+    --envelope: #fffaed;
     --white: #fff;
     --pink: #E28FB0;
     --gray-90: #ccc;
+    --gray-10: #252424;
+    --gray-20: #454141;
+    --green: #63C35B;
+    --red: #FD3B44;
+
+    --background: var(--envelope);
+    --foreground: var(--white);
+    --highlight: var(--pink);
+    --confirm: var(--green);
+    --cancel: var(--red);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: var(--gray-20);
+    }
 }
