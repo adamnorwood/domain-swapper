@@ -1,13 +1,13 @@
 :root {
     color-scheme: light dark;
-    --envelope: #fffaed;
-    --white: #fff;
-    --pink: #E28FB0;
-    --gray-90: #ccc;
-    --gray-10: #252424;
-    --gray-20: #454141;
-    --green: #63C35B;
-    --red: #FD3B44;
+    --envelope: oklch(98% 0.015 90);
+    --white: oklch(100% 0 0);
+    --pink: oklch(75% 0.11 355);
+    --gray-90: oklch(85% 0 0);
+    --gray-10: oklch(26% 0.001 17);
+    --gray-20: oklch(38% 0.005 17);
+    --green: oklch(73.5% 0.17 142);
+    --red: oklch(65.25% 0.228 24);
 
     --background: var(--envelope);
     --foreground: var(--white);
