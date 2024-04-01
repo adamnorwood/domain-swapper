@@ -15,3 +15,16 @@ Why would you want to do this? Developers often test specific pages or applicati
 
 Extension icon SVG by Noun Project user [rajakumara](https://thenounproject.com/rajakumara12121/), licensed as [Creative Commons CC BY](https://creativecommons.org/licenses/by/4.0/) (modifications made to the icon: cropping to artwork
 dimensions, optimization with SVGOMG).
+
+## Release Notes
+
+### [2.0.1](https://github.com/adamnorwood/domain-swapper/compare/v2.0.0...v2.0.1)
+
+* Updates node package versions to latest.
+* Removes unnecessary node package references.
+* MINOR: tidies up code comments and runs components through `Prettier` one more time.
+
+### [2.0.0](https://github.com/adamnorwood/domain-swapper/compare/v1.1.1...v2.0.0)
+
+* Completely redesigned and rewritten using the [Plasmo](https://github.com/PlasmoHQ/plasmo) web extension framework, with [Redux Toolkit](https://redux-toolkit.js.org/) for persistent storage and [dnd kit](https://dndkit.com/) for the accessible drag-and-drop support.
+* Builds are now available through Firefox Add-Ons as well as the Google Chrome Web Store (Edge and Safari versions coming soon…hopefully).
