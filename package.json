@@ -1,7 +1,7 @@
 {
   "name": "domain-swapper",
   "displayName": "Domain Swapper",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Browser extension to allow swapping between hostnames quickly while preserving the rest of the URL ",
   "author": "Adam Norwood <adam@adamnorwood.com>",
   "scripts": {
@@ -15,8 +15,8 @@
     "@dnd-kit/utilities": "^3.2.2",
     "@plasmohq/redux-persist": "^6.1.0",
     "@plasmohq/storage": "^1.15.0",
-    "@reduxjs/toolkit": "^2.6.1",
-    "lucide-react": "^0.485.0",
+    "@reduxjs/toolkit": "^2.8.2",
+    "lucide-react": "^0.511.0",
     "nanoid": "^5.1.5",
     "plasmo": "^0.90.3",
     "react": "^19.1.0",
@@ -25,11 +25,11 @@
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
-    "@types/chrome": "^0.0.313",
-    "@types/node": "^22.13.14",
-    "@types/react": "^19.0.12",
+    "@types/chrome": "^0.0.323",
+    "@types/node": "^22.15.18",
+    "@types/react": "^19.1.4",
     "prettier": "^3.5.3",
-    "typescript": "^5.8.2",
+    "typescript": "^5.8.3",
     "utopia-core-scss": "^1.2.1"
   },
   "manifest": {

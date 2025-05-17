@@ -1,7 +1,7 @@
-@import 'reset';
-@import 'utopia';
-@import 'typography';
-@import 'colors';
+@use 'reset' as *;
+@use 'utopia' as *;
+@use 'typography' as *;
+@use 'colors' as *;
 
 body {
     background-color: var(--background);
