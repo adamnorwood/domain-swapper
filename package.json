@@ -1,7 +1,7 @@
 {
   "name": "domain-swapper",
   "displayName": "Domain Swapper",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Browser extension to allow swapping between hostnames quickly while preserving the rest of the URL ",
   "author": "Adam Norwood <adam@adamnorwood.com>",
   "scripts": {
@@ -16,7 +16,7 @@
     "@plasmohq/redux-persist": "^6.1.0",
     "@plasmohq/storage": "^1.15.0",
     "@reduxjs/toolkit": "^2.12.0",
-    "lucide-react": "^1.31.0",
+    "lucide-react": "^1.33.0",
     "nanoid": "^6.0.1",
     "plasmo": "^0.90.5",
     "react": "^19.2.8",

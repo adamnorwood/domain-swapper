@@ -18,6 +18,10 @@ dimensions, optimization with SVGOMG).
 
 ## Release Notes
 
+### [2.0.9](https://github.com/adamnorwood/domain-swapper/compare/v2.0.8...v2.0.9)
+
+* Minor: Updates node package versions to latest.
+
 ### [2.0.8](https://github.com/adamnorwood/domain-swapper/compare/v2.0.7...v2.0.8)
 
 * Minor: Updates node package versions to latest.
